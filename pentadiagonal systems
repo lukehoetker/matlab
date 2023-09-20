@@ -1,0 +1,42 @@
+clear;
+n=100;
+f(1)=1/2;
+f(2)=1/6;
+f(n)=1/2;
+f(n-1)=1/6;
+
+a=ones(n,1);
+b=ones(n,1);
+c=ones(n,1);
+
+for i=1:n-2
+    a(i)=i;
+    b(i)=-(i+1)/3;
+    c(i)=-(i+1)/3;
+    d(i)=-(i+2)/6;
+    e(i)=-(i+2)/6;
+    
+    l1(i)=b(i)/a(i);
+    l2(i)=d(i)/a(i);
+    
+    f(3:n-2)=0;
+    
+    a(i+1)=a(i+1)-l1(i)*c(i);
+    c(i+1)=c(i+1)-l1(i)*e(i);
+    b(i+1)=b(i+1)-l2(i)*c(i);
+    a(i+2)= a(i+2) -l2(i)*e(i);
+    
+    f(i+1)=f(i+1)-l1(i)*f(i);
+    f(i+2)=f(i+2)-l2(i)*f(i);
+end
+
+x(n)=f(n)/a(n);
+x(n-1)=(f(n-1)-c(n-1)*x(n))/a(n-1);
+
+for i=n-2:-1:1
+    x=ones(n,1);
+    x(i)=(f(i)-c(i)*x(i+1)-e(i)*x(i+2))/a(i);
+    x=x(i);
+end
+
+    
