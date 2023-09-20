@@ -1,0 +1,24 @@
+y= [7,4,7,12,2,10,9,11,12,12,11,11,6,14,7,10,9,12,10]; %number of upsets in march madness beginning in 2003 
+x=[2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2021,2022]; %year in march madness
+avg=sum(y)/length(y);
+plot(x,y,'b');
+hold on;
+yline(avg);
+text(12,8,'\uparrow 8.8')
+xlabel('Year');
+ylabel('Number of Upsets');
+legend('Upsets in a given year','Average number of upsets')
+
+
+FirstRoundUpset={'No. 10 Seed over No. 7 Seed','No. 11 Seed over No. 6 Seed','No. 12 Seed over No. 5 Seed','No. 13 Seed over No. 4 Seed','No. 14 Seed over No. 3 Seed',
+'No. 15 Seed over No. 2 Seed','No. 16 Seed over No. 1 Seed'}'; %in this project I classified a double digit seed over a single digit seed as an upset, only using first round matchups
+Frequency=[58,57,53,31,22,10,1]';
+Percentage=[40.3,39.6,36.8,21.5,15.3,6.9,.7]';
+T=table(FirstRoundUpset,Frequency,Percentage);
+
+
+
+Team={'Uconn','Creighton','Texas','Saint Mary's','Kansas','Houston','Alabama','UCLA'}'; %end of regualr season KenPom ranking both offensively and defensively
+Offense=[6,28,18,40,29,11,19,25]';
+Defense=[18,15,11,9,7,4,3,1]';
+R=table(Team,Offense,Defense);
