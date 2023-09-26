@@ -1,0 +1,17 @@
+clear;
+n = 1998; #
+fprintf(' %d =',n)
+for a = 2 : n
+    r = 0;
+    while n/a == floor(n/a)
+        n = n/a;
+        r = r+1;
+    end
+    if r>0
+        str = [num2str(a) '^' num2str(r)];
+        fprintf(' %d^ %d* ',a,r);
+        if n == 1
+            break
+        end
+    end
+end
