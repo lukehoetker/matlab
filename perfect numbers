@@ -1,0 +1,22 @@
+clear;
+
+v=10000;
+index = 1;
+
+for n=1:v
+    sum=1;
+    i = 2;
+    while i*i <= n
+        if rem(n,i) == 0
+            sum = sum + i + n/i;
+        end
+        i = i + 1;
+    end
+
+    if sum == n && n~=1
+        result(index) = n;
+        index = index + 1;
+    end
+end
+
+result
